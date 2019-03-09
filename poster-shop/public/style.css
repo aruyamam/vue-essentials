@@ -1,0 +1,120 @@
+/* Sections */
+html, body {
+   width: 100%;
+   height: 100%;
+   margin: 0;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   background-color: #f3f3f3;
+   color: #333;
+}
+
+#app {
+   display: flex;
+   flex-direction: column;
+}
+
+.header {
+   padding: 1rem 2rem;
+   flex: 0;
+   background-color: #157ed2;
+}
+
+.main {
+   display: flex;
+   flex-direction: row;
+   flex: 1;
+   padding: 2rem;
+}
+
+.container {
+   margin: 0 auto;
+   width: 1100px;
+}
+
+/* Headr */
+.title {
+   display: flex;
+   justify-content: center;
+   overflow: auto;
+   padding: 2rem 0 1rem;
+}
+
+.title > img {
+   display: block;
+   height: 50px;
+}
+
+.title > h1 {
+   margin: -9px 0 0 6px;
+   color: #fff;
+   font-size: 2.5rem;
+   font-family: 'Baloo Bhaina', cursive;
+}
+
+/* Products */
+
+/* Cart */
+.cart {
+   margin-left: 1rem;
+   padding-left: 1rem;
+}
+
+.cart > h2 {
+   margin-top: 0;
+   padding-bottom: 1rem;
+   border-bottom: 2px solid black;
+   font-size: 1.25rem;
+   text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+   .container {
+      width: auto;
+      margin: 0 2rem;
+   }
+}
+
+@media (max-width: 950px) {
+   .header {
+      padding: 1rem 0;
+   }
+
+   .main {
+      padding: 2rem 0;
+      flex-direction: column;
+   }
+
+   .products {
+      flex: auto;
+   }
+
+   .cart {
+      flex: auto;
+   }
+
+   .container {
+      width: auto;
+      margin: 0 1rem;
+   }
+
+   .title {
+      padding-bottom: 2rem;
+   }
+
+   .title > img {
+      height: 40px;
+   }
+
+   .title > h1 {
+      margin: -7px 0 0 4px;
+      font-size: 2rem;
+   }
+
+   .cart {
+      margin: 0;
+      padding: 2rem 0 0 0;
+   }
+}
