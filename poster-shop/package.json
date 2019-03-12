@@ -16,7 +16,8 @@
       "axios": "^0.18.0",
       "dotenv": "^6.2.0",
       "express": "^4.16.4",
-      "vue": "^2.6.8"
+      "vue": "^2.6.8",
+      "vue-resource": "^1.5.1"
    },
    "devDependencies": {
       "eslint": "^5.12.1",

@@ -11,6 +11,31 @@ app.get("/", function(req, res) {
 	res.sendfile(path.join(__dirname + "/index.html"));
 });
 
+var directory;
+fs.readFile("./directory.json", "utf8", function(err, data) {
+	directory = JSON.parse(data);
+	if (err) {
+		throw err;
+	}
+});
+
+app.get("/search", function(req, res) {
+	var results = directory.reduce(function(acc, file) {
+		if (file.tags.indexOf(req.query.q) !== -1) {
+			acc.push({
+				id: file.id,
+				title: file.title,
+				thumb: "/public/images/".concat(file.thumb),
+				price: file.price
+			});
+		}
+
+		return acc;
+	}, []);
+
+	res.send(results);
+});
+
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 app.use("/public", express.static(path.join(__dirname, "public")));
 
