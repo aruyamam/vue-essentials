@@ -42,7 +42,7 @@
                   Loading...
                </div>
                <div v-else class="search-results">
-                  Found {{ products.length }} results for search term
+                  Found {{ results.length }} results for search term
                   <em>{{ lastSearch }}</em
                   >.
                </div>
@@ -67,6 +67,13 @@
                      >
                         Add to Cart
                      </button>
+                  </div>
+               </div>
+               <div id="product-list-bottom">
+                  <div
+                     v-if="products.length === results.length && results.length > 0"
+                  >
+                     No more items.
                   </div>
                </div>
             </div>
@@ -103,6 +110,7 @@
       <script src="/reload/reload.js"></script>
       <script src="node_modules/vue/dist/vue.js"></script>
       <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+      <script src="node_modules/scrollmonitor/scrollMonitor.js"></script>
       <script src="public/script.js"></script>
    </body>
 </html>
