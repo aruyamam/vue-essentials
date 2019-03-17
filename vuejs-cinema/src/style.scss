@@ -1,6 +1,11 @@
 $mine-shaft: #3f3f3f;
 $charcoal: #232323;
+$dove-gray: #6e6e6e;
 $white: #ffffff;
+
+@mixin body-view {
+   padding: 0 2rem;
+}
 
 $break-small: 800px;
 
@@ -52,6 +57,60 @@ body, html {
                font-size: 1.5rem;
             }
          }
+      }
+   }
+
+   .movie {
+      display: flex;
+   }
+
+   #overview {
+      @include body-view;
+
+      .main {
+         display: flex;
+
+         @media screen and (max-width: $break-small) {
+            flex-direction: column;
+         }
+      }
+
+      #movie-list {
+         flex-basis: 75%;
+      }
+      #movie-filter {
+         flex-basis: 25%;
+      }
+   }
+
+   #movie-list {
+      padding-top: 2rem;
+
+      .movie {
+         padding-bottom: 2rem;
+         border-bottom: 2px ridge $dove-gray;
+      }
+   }
+
+   $filter-shadow: 1px 1px 2px rgba(0,0,0, 0.3);
+
+   #movie-filter {
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+      color: $white;
+      font-size: 1.15rem;
+
+      @media screen and (max-width: $break-small) {
+         margin-bottom: 0;
+         padding-left: 0;
+         padding-bottom: 2rem;
+         border-bottom: 2px ridge $dove-gray;
+         font-size: 1rem;
+      }
+
+      h2 {
+         border-bottom: 3px solid $white;
+         text-shadow:  3 solid $filter-shadow;
       }
    }
 }
