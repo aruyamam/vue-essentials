@@ -1,6 +1,6 @@
 export default Object.freeze({
    ANIMATION: 'Animation',
-   COMECY: 'Comedy',
+   COMEDY: 'Comedy',
    CRIME: 'Crime',
    DOCUMENTARY: 'Documentary',
    DRAMA: 'Drama',
