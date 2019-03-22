@@ -1,4 +1,5 @@
 $alto: #dcdcdc;
+$bright-red: #b50010;
 $charcoal: #232323;
 $dove-gray: #6e6e6e;
 $sunshade: #ffa624;
@@ -8,6 +9,8 @@ $white: #ffffff;
 @mixin body-view {
    padding: 0 2rem;
 }
+
+$text-shadow: 1px 1px 2px rgba(0,0,0, 0.3);
 
 $break-small: 800px;
 
@@ -65,6 +68,61 @@ body, html {
    .movie {
       display: flex;
       margin-bottom: 2rem;
+
+      .movie-col-left {
+
+         img {
+            display: block;
+            height: 250px;
+
+            @media screen and (max-width: $break-small) {
+               height: 150px;
+            }
+         }
+      }
+
+      .movie-col-right {
+         padding-left: 1rem;
+
+         .movie-title {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+
+            h2 {
+               display: inline-block;
+               margin: 0;
+               margin-right: 0.5rem;
+               color: $sunshade;
+               text-shadow: $text-shadow;
+            }
+
+            .movie-rating {
+               padding: 0.3rem 0.5rem 0.2rem;
+               background-color: $bright-red;
+               text-shadow: $text-shadow;
+               line-height: 1.5rem;
+               font-weight: bold;
+               white-space: nowrap;
+               overflow: hidden;
+               user-select: none;
+            }
+
+            @media screen and (max-width: $break-small) {
+               h2 {
+                  line-height: 1.25re;
+                  font-size: 1.25rem;
+               }
+
+               .movie-rating {
+                  padding: 0.2rem 0.35rem 0.1rem;
+                  line-height: 1rem;
+                  font-size: 0.8rem;
+               }
+            }
+         }
+      }
    }
 
    #overview {
@@ -92,6 +150,12 @@ body, html {
       .movie {
          padding-bottom: 2rem;
          border-bottom: 2px ridge $dove-gray;
+      }
+
+      .no-results {
+         padding-bottom: 2rem;
+         font-weight: bold;
+         font-size: 1.25rem;
       }
    }
 
