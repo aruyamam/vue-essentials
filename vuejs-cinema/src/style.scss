@@ -152,6 +152,32 @@ body, html {
          border-bottom: 2px ridge $dove-gray;
       }
 
+      .movie-col-right {
+
+         .movie-sessions {
+
+            .session-time-wrapper {
+               float: left;
+            }
+
+            .session-time {
+               margin-right: 0.5rem;
+               margin-bottom: 0.5rem;
+               padding: 0.5rem;
+               background-color: $dove-gray;
+               font-weight: bold;
+               text-shadow: 1px 1px 1px rgba(0,0,0, 0.3);
+               white-space: nowrap;
+               user-select: none;
+
+               @media screen and (max-width: $break-small) {
+                  padding: 0.35rem;
+                  font-size: 0.8rem;
+               }
+            }
+         }
+      }
+
       .no-results {
          padding-bottom: 2rem;
          font-weight: bold;
