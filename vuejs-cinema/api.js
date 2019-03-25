@@ -17,7 +17,7 @@ function generateSessions(id) {
       .replace('tt', '')
       .split('')
       .map((item) => {
-         let num = parseInt(item);
+         let num = parseInt(item, 10);
          if (num === 0) {
             num = 1;
          }

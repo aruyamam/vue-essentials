@@ -26,6 +26,7 @@ const app = new Vue({
       time: [],
       movies: [],
       moment,
+      day: moment(),
    },
    created() {
       this.$http.get('/api').then((response) => {
