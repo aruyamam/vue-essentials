@@ -3,13 +3,7 @@
     <h2>Filter results</h2>
     <h3>By times of day</h3>
     <div class="filter-group">
-      <check-filter
-        v-bind:key="time"
-        v-for="time in times"
-        category="time"
-        v-bind:title="time"
-        v-on:check-filter="checkFilter"
-      ></check-filter>
+      <check-filter v-bind:key="time" v-for="time in times" category="time" v-bind:title="time"></check-filter>
     </div>
     <h3>By genre</h3>
     <div class="filter-group">
@@ -18,7 +12,6 @@
         v-for="genre in genres"
         category="genre"
         v-bind:title="genre"
-        v-on:check-filter="checkFilter"
       ></check-filter>
     </div>
   </div>
@@ -31,11 +24,6 @@ import CheckFilter from "./CheckFilter.vue";
 export default {
   data() {
     return { genres, times };
-  },
-  methods: {
-    checkFilter(category, title, checked) {
-      this.$emit("check-filter", category, title, checked);
-    }
   },
   components: {
     CheckFilter
