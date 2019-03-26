@@ -2,14 +2,17 @@ import Vue from 'vue';
 import './style.scss';
 
 import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
 import moment from 'moment-timezone';
 
-import Overview from './components/Overview.vue'
+import Overview from './components/Overview.vue';
 
+import routes from './util/routes';
 import { checkFilter } from './util/bus';
 
 moment.tz.setDefault('UTC');
 
+Vue.use(VueRouter);
 Vue.use(VueResource);
 Object.defineProperty(Vue.prototype, '$moment', {
    get() {
@@ -23,6 +26,8 @@ Object.defineProperty(Vue.prototype, '$bus', {
       return this.$root.bus;
    },
 });
+
+const router = new VueRouter({ routes });
 
 const app = new Vue({
    components: {
@@ -42,6 +47,7 @@ const app = new Vue({
       });
       this.$bus.$on('check-filter', checkFilter.bind(this));
    },
+   router,
 });
 
 app.$mount('#app');
