@@ -4,10 +4,9 @@ import './style.scss';
 import VueResource from 'vue-resource';
 import moment from 'moment-timezone';
 
-import { checkFilter } from './util/bus';
+import Overview from './components/Overview.vue'
 
-import MovieList from './components/MovieList.vue';
-import MovieFilter from './components/MovieFilter.vue';
+import { checkFilter } from './util/bus';
 
 moment.tz.setDefault('UTC');
 
@@ -27,8 +26,7 @@ Object.defineProperty(Vue.prototype, '$bus', {
 
 const app = new Vue({
    components: {
-      MovieList,
-      MovieFilter,
+      Overview,
    },
    data: {
       bus,
