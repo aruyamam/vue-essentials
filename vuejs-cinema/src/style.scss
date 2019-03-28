@@ -269,4 +269,43 @@ body, html {
          user-select: none;
       }
    }
+
+   #detail {
+      @include body-view;
+      padding-bottom: 2rem;
+
+      .home {
+         margin-bottom: 1rem;
+
+         a {
+            padding: 0.5rem 0;
+            color: $white;
+            border-top: 2px solid $white;
+            text-decoration: none;
+            font-size: 1.25rem;
+         }
+      }
+
+      .movie {
+         .movie-details {
+            color: $white;
+
+            .movie-genre {
+               font-weight: bold;
+            }
+
+            table {
+               tr {
+                  td {
+                     vertical-align: top;
+                  }
+                  td:first-child {
+                     padding-right: 0.5rem;
+                     font-weight: bold;
+                  }
+               }
+            }
+         }
+      }
+   }
 }

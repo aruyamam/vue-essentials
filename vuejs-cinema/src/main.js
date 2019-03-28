@@ -5,8 +5,6 @@ import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
 import moment from 'moment-timezone';
 
-import Overview from './components/Overview.vue';
-
 import routes from './util/routes';
 import { checkFilter } from './util/bus';
 
@@ -30,9 +28,6 @@ Object.defineProperty(Vue.prototype, '$bus', {
 const router = new VueRouter({ routes });
 
 const app = new Vue({
-   components: {
-      Overview,
-   },
    data: {
       bus,
       day: moment(),
