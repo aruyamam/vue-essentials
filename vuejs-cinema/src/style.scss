@@ -63,6 +63,82 @@ body, html {
             }
          }
       }
+
+      #day-select {
+         .days {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: $charcoal;
+            list-style: none;
+            cursor: pointer;
+
+            @media screen and (max-width: $break-small) {
+               justify-content: space-between;
+            }
+
+            .day {
+               padding: 1rem;
+               font-weight: bold;
+
+               &:hover {
+                  background-color: lighten($charcoal, 3%);
+               }
+
+               &.active {
+                  background-color: darken($charcoal, 5%);
+                  color: $bright-red;
+                  text-decoration: none;
+               }
+
+               @media screen and (max-width: $break-small) {
+                  display: none;
+                  &.active {
+                     display: inline;
+                  }
+               }
+            }
+
+            .day-selector {
+               display: none;
+               
+               @media screen and (max-width: $break-small) {
+                  display: inline-flex;
+                  justify-content: space-between;
+                  width: 80px;
+                  padding: 0;
+                  font-weight: bold;
+                  user-select: none;
+
+                  span {
+                     position: relative;
+                     width: 40px;
+                     font-size: 3rem;
+
+                     &:after {
+                        position: absolute;
+                        left: 5px;
+                        bottom: -6px;
+                     }
+
+                     &:hover {
+                        background-color: lighten($charcoal, 3%);
+                     }
+                  }
+               }
+
+               .dec:after {
+                  content: '<';
+               }
+
+               .inc:after {
+                  content: '>';
+               }
+            }
+         }
+      }
    }
 
    .movie {
@@ -141,6 +217,10 @@ body, html {
       }
       #movie-filter {
          flex-basis: 25%;
+
+         @media screen and (max-width: $break-small) {
+            order: -1;
+         }
       }
    }
 

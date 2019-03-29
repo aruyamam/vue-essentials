@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 import moment from 'moment-timezone';
 
 import routes from './util/routes';
-import { checkFilter } from './util/bus';
+import { checkFilter, setDay } from './util/bus';
 
 moment.tz.setDefault('UTC');
 
@@ -41,6 +41,7 @@ const app = new Vue({
          this.movies = response.data;
       });
       this.$bus.$on('check-filter', checkFilter.bind(this));
+      this.$bus.$on('set-day', setDay.bind(this));
    },
    router,
 });
