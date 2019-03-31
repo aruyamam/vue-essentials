@@ -3,7 +3,11 @@
     <div v-if="filteredMovies.length">
       <movie-item v-bind:key="movie.id" v-for="movie in filteredMovies" v-bind:movie="movie.movie">
         <div class="movie-sessions">
-          <div v-for="session in filteredSessions(movie.sessions)" class="session-time-wrapper">
+          <div
+            v-for="session in filteredSessions(movie.sessions)"
+            class="session-time-wrapper tooltip-wrapper"
+            v-tooltip="{ seats: session.seats }"
+          >
             <div class="session-time">{{ formatSessionTime(session.time) }}</div>
           </div>
         </div>
@@ -56,6 +60,10 @@ export default {
   },
   computed: {
     filteredMovies() {
+      // this.movies.forEach(movie => {
+      //   movie.sessions.forEach(session => console.log(session.id));
+      // });
+
       return this.movies
         .filter(this.moviePassesGenreFilter)
         .filter(movie => movie.sessions.find(this.sessionPassesTimeFilter));
