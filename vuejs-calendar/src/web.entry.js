@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import './style.scss';
 
+import App from './components/App.vue';
+
 const app = new Vue({
-   data: {
-      msg: 'Hello World',
+   components: {
+      App,
    },
 });
 
