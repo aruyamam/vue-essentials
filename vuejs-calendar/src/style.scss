@@ -1,0 +1,77 @@
+$alto: #ddd;
+$pickled-bluewood: #35495e;
+
+$calendar-border: 1px solid $alto;
+
+@mixin calendar-row {
+   display: flex;
+   justify-content: flex-start;
+   width: 100%;
+}
+
+@mixin calendar-cell {
+   width: 100%;
+   padding: 0.5rem;
+}
+
+@font-face {
+   font-family: 'Muli';
+   src: url('~./assets/Muli-Light.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Muli';
+   src: url('~./assets/Muli-Regular.ttf') format('truetype');
+   font-weight: bold;
+   font-style: normal;
+}
+
+body {
+   padding-bottom: 2rem;
+   color: $pickled-bluewood;
+   font-family: 'Muli', Helvetica, Arial, sans-serif;
+}
+
+#app {
+   display: block !important;
+   flex-basis: 1000px;
+
+   #day-bar {
+      @include calendar-row;
+
+      div {
+         @include calendar-cell;
+      }
+   }
+
+   #calendar {
+      background: white;
+
+      .calendar-week {
+         @include calendar-row();
+
+         .day {
+            font-weight: bold;
+            overflow: hidden;
+            height: 100px;
+            border-left: $calendar-border;
+            border-top: $calendar-border;
+            user-select: none;
+            cursor: default;
+            @include calendar-cell;
+
+            &:last-child {
+               border-right: $calendar-border;
+            }
+         }
+
+         &:last-child {
+            .day {
+               border-bottom: $calendar-border;
+            }
+         }
+      }
+   }
+}

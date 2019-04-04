@@ -1,12 +1,24 @@
 <template>
   <div>
-    <div v-bind:key="week.toString()" v-for="week in weeks">
-      Week
-      <div v-bind:key="day.toString()" v-for="day in week">{{ day }}</div>
+    <div id="day-bar">
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+      <div>Sun</div>
+    </div>
+    <div id="calendar">
+      <div v-bind:key="week.toString()" v-for="week in weeks" class="calendar-week">
+        <calendar-day v-bind:key="day.toString()" v-for="day in week" :day="day">{{ day }}</calendar-day>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import CalendarDay from "./CalendarDay.vue";
+
 export default {
   data() {
     return {
@@ -64,6 +76,9 @@ export default {
 
       return weeks;
     }
+  },
+  components: {
+    CalendarDay
   }
 };
 </script>
