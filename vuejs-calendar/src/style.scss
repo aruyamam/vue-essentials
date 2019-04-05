@@ -1,4 +1,5 @@
 $alto: #ddd;
+$buttermilk: rgba(255,238,173, 0.4);
 $pickled-bluewood: #35495e;
 
 $calendar-border: 1px solid $alto;
@@ -64,6 +65,10 @@ body {
 
             &:last-child {
                border-right: $calendar-border;
+            }
+
+            &.today {
+               background-color: $buttermilk;
             }
          }
 
