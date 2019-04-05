@@ -67,6 +67,10 @@ body {
                border-right: $calendar-border;
             }
 
+            &.past {
+               opacity: 0.6;
+            }
+
             &.today {
                background-color: $buttermilk;
             }
