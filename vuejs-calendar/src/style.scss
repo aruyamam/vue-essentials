@@ -1,5 +1,6 @@
 $alto: #ddd;
 $buttermilk: rgba(255,238,173, 0.4);
+$dusty-gray: #999;
 $pickled-bluewood: #35495e;
 
 $calendar-border: 1px solid $alto;
@@ -38,6 +39,48 @@ body {
 #app {
    display: block !important;
    flex-basis: 1000px;
+
+   #header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      div:first-child {
+         display: flex;
+         align-items: center;
+         margin: 1rem 0;
+
+         h1 {
+            margin: 0 0 0 0.5rem;
+            padding-top: 7px;
+            color: $pickled-bluewood;
+         }
+      }
+
+      div:last-child {
+         font-weight: bold;
+
+         button {
+            width: 20px;
+            margin-left: 0.25rem;
+            padding: 0;
+            background-color: white;
+            color: $dusty-gray;
+            border: 1px solid $alto;
+            border-radius: 2px;
+            user-select: none;
+
+            &:focus {
+               outline: none;
+            }
+
+            &:hover {
+               color: $pickled-bluewood;
+               box-shadow: 0 2px 2px $alto;
+            }
+         }
+      }
+   }
 
    #day-bar {
       @include calendar-row;
