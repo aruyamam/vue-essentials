@@ -126,4 +126,21 @@ body {
          }
       }
    }
+
+   $event-form-with: 300px;
+
+   #event-form {
+      position: fixed;
+      display: none;
+      width: $event-form-with;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 4px $alto;
+      border-right: 1px solid $alto;
+      transform: translate(-50%, -100%);
+
+      &.active {
+         display: flex;
+      }
+   }
 }
