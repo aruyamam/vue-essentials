@@ -21,6 +21,7 @@ export default {
         x: event.clientX,
         y: event.clientY
       });
+      this.$store.commit("eventFormActive", true);
     }
   }
 };

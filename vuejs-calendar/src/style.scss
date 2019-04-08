@@ -142,5 +142,30 @@ body {
       &.active {
          display: flex;
       }
+
+      h4 {
+         margin: 0 0 0.75em 0;
+         color: $dusty-gray;
+         font-weight: normal;
+         font-size: 1.15rem;
+      }
+   }
+
+   #close-button {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      width: 20px;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #666666;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:focus {
+         outline: none;
+      }
    }
 }

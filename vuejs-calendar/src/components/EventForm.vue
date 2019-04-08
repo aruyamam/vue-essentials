@@ -1,9 +1,20 @@
 <template>
-  <div id="event-form" :class="{ active: true }" :style="{ top, left }"></div>
+  <div id="event-form" :class="{ active }" :style="{ top, left }">
+    <h4>Add an event</h4>
+    <button id="close-button" @click="close">&#10005</button>
+  </div>
 </template>
 <script>
 export default {
+  methods: {
+    close() {
+      this.$store.commit("eventFormActive", false);
+    }
+  },
   computed: {
+    active() {
+      return this.$store.state.eventFormActive;
+    },
     top() {
       return `${this.$store.state.eventFormPosY}px`;
     },
