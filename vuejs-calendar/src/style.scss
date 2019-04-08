@@ -2,6 +2,7 @@ $alto: #ddd;
 $buttermilk: rgba(255,238,173, 0.4);
 $dusty-gray: #999;
 $pickled-bluewood: #35495e;
+$vista-blue: #42b983;
 
 $calendar-border: 1px solid $alto;
 
@@ -116,6 +117,18 @@ body {
 
             &.today {
                background-color: $buttermilk;
+            }
+
+            .event-list {
+               margin: 0.5rem 0 0.5rem 0;
+               padding: 0;
+               color: $vista-blue;
+               font-weight: bold;
+               list-style: none;
+
+               li {
+                  white-space: nowrap;
+               }
             }
          }
 
