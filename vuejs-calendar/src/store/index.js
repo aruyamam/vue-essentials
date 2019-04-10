@@ -27,7 +27,7 @@ export default new Vuex.Store({
             date: moment('2019-05-02', 'YYYY-MM-DD'),
          },
       ],
-      eventFormDate: null,
+      eventFormDate: moment(),
    },
    mutations: {
       setCurrentMonth(state, payload) {

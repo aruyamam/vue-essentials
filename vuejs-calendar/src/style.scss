@@ -2,6 +2,7 @@ $alto: #ddd;
 $buttermilk: rgba(255,238,173, 0.4);
 $dusty-gray: #999;
 $pickled-bluewood: #35495e;
+$pink: rgba(255,182,193, 0.3);
 $vista-blue: #42b983;
 
 $calendar-border: 1px solid $alto;
@@ -117,6 +118,10 @@ body {
 
             &.today {
                background-color: $buttermilk;
+            }
+
+            &.active {
+               background-color: $pink;
             }
 
             .event-list {
