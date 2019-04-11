@@ -7,11 +7,20 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
    const template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
    res.send(template);
+});
+
+const events = [];
+
+app.post('/add_event', (req, res) => {
+   events.push(req.body);
+   res.sendStatus(200);
 });
 
 const server = http.createServer(app);
