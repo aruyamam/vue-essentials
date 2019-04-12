@@ -4,6 +4,10 @@ const path = require('path');
 const fs = require('fs');
 const http = require('http');
 const express = require('express');
+const moment = require('moment-timezone');
+const serialize = require('serialize-javascript');
+
+moment.tz.setDefault('UTC');
 
 const app = express();
 
@@ -11,12 +15,31 @@ app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+const events = [
+   {
+      description: 'Random event 1',
+      date: moment('2019-04-06', 'YYYY-MM-DD'),
+   },
+   {
+      description: 'Random event 2',
+      date: moment('2019-04-15', 'YYYY-MM-DD'),
+   },
+   {
+      description: 'Random event 3',
+      date: moment('2019-05-02', 'YYYY-MM-DD'),
+   },
+];
+
 app.get('/', (req, res) => {
    const template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
-   res.send(template);
+   const contentMarker = '<!--APP-->';
+   res.send(
+      template.replace(
+         contentMarker,
+         `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`,
+      ),
+   );
 });
-
-const events = [];
 
 app.post('/add_event', (req, res) => {
    events.push(req.body);
