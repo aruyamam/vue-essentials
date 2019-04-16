@@ -30,19 +30,37 @@ const events = [
    },
 ];
 
+let renderer;
+
 app.get('/', (req, res) => {
    const template = fs.readFileSync(path.resolve('./index.html'), 'utf-8');
    const contentMarker = '<!--APP-->';
-   res.send(
-      template.replace(
-         contentMarker,
-         `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>`,
-      ),
-   );
+   if (renderer) {
+      renderer.renderToString({ events }, (err, html) => {
+         if (err) {
+            console.log(err);
+         }
+         else {
+            // console.log(html);
+            res.send(
+               template.replace(
+                  contentMarker,
+                  `<script>var __INITIAL_STATE__ = ${serialize(events)}</script>\n${html}`,
+               ),
+            );
+         }
+      });
+   }
+   else {
+      res.send('<p>Awaiting compilation</p>');
+   }
 });
 
 app.post('/add_event', (req, res) => {
-   events.push(req.body);
+   events.push({
+      description: req.body.description,
+      date: moment(req.body.date),
+   });
    res.sendStatus(200);
 });
 
@@ -52,6 +70,9 @@ if (process.env.NODE_ENV === 'development') {
    const reload = require('reload');
    const reloadServer = reload(app);
    require('./webpack-dev-middleware').init(app);
+   require('./webpack-server-compiler').init((bundle) => {
+      renderer = require('vue-server-renderer').createBundleRenderer(bundle);
+   });
 }
 
 server.listen(process.env.PORT, () => {

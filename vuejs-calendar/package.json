@@ -31,7 +31,7 @@
       "vue": "^2.6.10",
       "vue-loader": "^10.0.0",
       "vue-resource": "^1.5.1",
-      "vue-server-renderer": "~2.1.8",
+      "vue-server-renderer": "^2.6.10",
       "vue-style-loader": "^4.1.2",
       "vue-template-compiler": "^2.6.10",
       "vuex": "^3.1.0"
