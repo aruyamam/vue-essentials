@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
       });
    }
    else {
-      res.send('<p>Awaiting compilation</p>');
+      res.send('<p>Awaiting compilation</p><script src="/reload/reload.js"></script>');
    }
 });
 
@@ -71,7 +71,11 @@ if (process.env.NODE_ENV === 'development') {
    const reloadServer = reload(app);
    require('./webpack-dev-middleware').init(app);
    require('./webpack-server-compiler').init((bundle) => {
+      const needsReload = renderer === undefined;
       renderer = require('vue-server-renderer').createBundleRenderer(bundle);
+      if (needsReload) {
+         reloadServer.reload();
+      }
    });
 }
 
